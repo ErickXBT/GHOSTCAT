@@ -62,7 +62,7 @@ export default function Hero() {
             </motion.div>
             
             <motion.div 
-              initial={{ opacity: 0, opacity: 0 }}
+              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="mt-8 text-xs font-bold uppercase tracking-widest flex items-center gap-2" style={{ color: 'rgba(11,16,12,0.55)' }}

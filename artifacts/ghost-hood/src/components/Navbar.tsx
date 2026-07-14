@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'wouter';
 import catFaceImg from '@assets/GHOST_HOOD_1784018789875.jpg';
 
 const navLinks = [
@@ -97,8 +98,15 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
+        {/* Ghost Game + CTA Buttons */}
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+            href="/game"
+            className="px-5 py-2.5 rounded-full font-bold text-sm tracking-wide transition-all hover:scale-105 border"
+            style={{ color: '#0B100C', backgroundColor: '#CCFF00', borderColor: '#CCFF00' } as React.CSSProperties}
+          >
+            Ghost Game
+          </Link>
           <button className="bg-card hover:bg-card-border border border-primary/30 text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-all hover:box-glow hover:border-primary group">
             Buy $GHOST
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform text-primary">→</span>
@@ -137,8 +145,17 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <div className="mt-8">
-                <button className="bg-primary text-background px-8 py-4 rounded-full font-bold text-lg tracking-wide w-full max-w-xs mx-auto">
+              <div className="mt-8 flex flex-col gap-3 items-center">
+                <Link href="/game">
+                  <a
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-8 py-4 rounded-full font-bold text-lg tracking-wide w-full max-w-xs text-center"
+                    style={{ backgroundColor: '#CCFF00', color: '#0B100C' }}
+                  >
+                    Ghost Game
+                  </a>
+                </Link>
+                <button className="bg-primary text-background px-8 py-4 rounded-full font-bold text-lg tracking-wide w-full max-w-xs">
                   Buy $GHOST →
                 </button>
               </div>
