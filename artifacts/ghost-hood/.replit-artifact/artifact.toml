@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "GHOST HOOD"
+version = "1.0.0"
+id = "artifacts/ghost-hood"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23235
+
+[services.development]
+run = "pnpm --filter @workspace/ghost-hood run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ghost-hood", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ghost-hood/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23235"
+BASE_PATH = "/"
