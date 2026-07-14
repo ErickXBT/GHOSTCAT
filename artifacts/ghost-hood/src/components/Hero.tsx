@@ -30,9 +30,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight mb-6" style={{ color: '#0B100C' }}
             >
-              Your Ghost <br/>
-              <span style={{ color: '#0B100C', WebkitTextStroke: '2px rgba(255,255,255,0.3)' }}>$GHOST</span> <br/>
-              Companion.
+              The Hood <br/>
+              <span style={{ color: '#0B100C', WebkitTextStroke: '2px rgba(255,255,255,0.3)' }}>Haunts Back.</span> <br/>
+              Own $GHOST.
             </motion.h1>
             
             <motion.p 
