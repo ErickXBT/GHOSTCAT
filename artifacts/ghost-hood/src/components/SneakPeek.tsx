@@ -42,10 +42,10 @@ export default function SneakPeek() {
             </h3>
             <div className="flex flex-col gap-4 flex-1">
               <div className="border border-white/[0.07] rounded-lg rounded-tr-sm p-3.5 w-[82%] self-start text-sm" style={{ backgroundColor: 'rgba(255,255,255,0.03)', color: '#E9F3EA' }}>
-                How do I get more $GHOST?
+                How do I get more $GHOSTCAT?
               </div>
               <div className="border border-white/[0.07] rounded-lg rounded-tl-sm p-3.5 w-[88%] self-end text-sm" style={{ backgroundColor: 'rgba(204,255,0,0.07)', color: 'rgba(233,243,234,0.75)', borderColor: 'rgba(204,255,0,0.2)' }}>
-                Stake your tokens and participate in community missions to earn more $GHOST...
+                Stake your tokens and participate in community missions to earn more $GHOSTCAT...
               </div>
             </div>
             <div className="mt-5 border border-white/[0.07] rounded-sm px-4 py-2.5 flex items-center gap-3" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
@@ -98,7 +98,7 @@ export default function SneakPeek() {
               <LineChart size={16} style={{ color: '#CCFF00' }} /> Token Stats
             </h3>
             <div className="text-2xl font-black text-white mb-4">
-              2,450 <span className="text-sm font-bold" style={{ color: '#CCFF00' }}>$GHOST</span>
+              2,450 <span className="text-sm font-bold" style={{ color: '#CCFF00' }}>$GHOSTCAT</span>
             </div>
             <div className="flex flex-col gap-3">
               {[

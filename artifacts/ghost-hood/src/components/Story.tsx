@@ -18,7 +18,7 @@ const cards = [
   {
     num: '03',
     label: 'NOW',
-    heading: 'GHOST HOOD is just getting started.',
+    heading: 'GHOSTCAT is just getting started.',
     body: <>Today the hood haunts the chain — <span style={{ color: '#CCFF00' }}>unkillable, un-fomo-able, and completely sincere about vibes.</span></>,
   },
 ];

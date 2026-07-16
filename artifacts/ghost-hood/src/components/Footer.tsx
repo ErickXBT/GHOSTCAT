@@ -18,9 +18,9 @@ export default function Footer() {
           <div className="md:col-span-5 flex flex-col items-start">
             <a href="#home" onClick={scrollToTop} className="flex items-center gap-2 group mb-4">
               <div className="w-6 h-6 rounded-sm overflow-hidden border border-primary/30 group-hover:border-primary transition-colors shrink-0">
-                <img src={catFaceImg} alt="Ghost Hood" className="w-full h-full object-cover" />
+                <img src={catFaceImg} alt="GHOSTCAT" className="w-full h-full object-cover" />
               </div>
-              <span className="font-bold tracking-[0.18em] text-xs uppercase text-white/80">GHOST HOOD</span>
+              <span className="font-bold tracking-[0.18em] text-xs uppercase text-white/80">GHOSTCAT</span>
             </a>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-6">
               The open ghost ecosystem. A stress-free, fomo-free token with on-chain vibes.
@@ -46,7 +46,7 @@ export default function Footer() {
             <h4 className="text-[10px] font-black tracking-[0.22em] uppercase text-muted-foreground mb-5">Product</h4>
             <nav className="flex flex-col gap-3">
               {[
-                { label: 'Why $GHOST', href: '#why-ghost' },
+                { label: 'Why $GHOSTCAT', href: '#why-ghost' },
                 { label: 'Roadmap', href: '#roadmap' },
                 { label: 'Sneak Peek', href: '#sneak-peek' },
                 { label: 'Ghost Game', href: '/game' },
@@ -82,7 +82,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-6 border-t border-white/[0.06] flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-muted-foreground/50 text-xs">
-            MIT licensed · © {new Date().getFullYear()} Ghost Hood. GHOST HOOD is a meme utility token — not financial advice.
+            MIT licensed · © {new Date().getFullYear()} GHOSTCAT. GHOSTCAT is a meme utility token — not financial advice.
           </p>
           <a
             href="#home"

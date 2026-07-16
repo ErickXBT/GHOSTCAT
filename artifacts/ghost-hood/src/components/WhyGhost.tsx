@@ -4,11 +4,11 @@ import { Crown, Vote, Coins, Store, PiggyBank, Flame } from 'lucide-react';
 
 const features = [
   { icon: <Crown size={20} />, label: '01 / ON RECORD', title: 'Ghost Premium Access', desc: 'Unlock exclusive features and deeply personalized ghost insights.' },
-  { icon: <Vote size={20} />, label: '02 / ON RECORD', title: 'Governance', desc: 'Vote on key decisions and help shape the future of GHOST HOOD.' },
-  { icon: <Coins size={20} />, label: '03 / ON RECORD', title: 'Ecosystem Rewards', desc: 'Earn $GHOST for staying active, hitting goals, and contributing.' },
-  { icon: <Store size={20} />, label: '04 / ON RECORD', title: 'Future Marketplace', desc: 'Spend $GHOST on future products, apps, and premium tools.' },
-  { icon: <PiggyBank size={20} />, label: '05 / ON RECORD', title: 'Staking Rewards', desc: 'Stake $GHOST to earn rewards and strengthen the ecosystem.' },
-  { icon: <Flame size={20} />, label: '06 / ON RECORD', title: 'Deflationary Model', desc: 'A share of every fee buys back and burns $GHOST over time.' },
+  { icon: <Vote size={20} />, label: '02 / ON RECORD', title: 'Governance', desc: 'Vote on key decisions and help shape the future of GHOSTCAT.' },
+  { icon: <Coins size={20} />, label: '03 / ON RECORD', title: 'Ecosystem Rewards', desc: 'Earn $GHOSTCAT for staying active, hitting goals, and contributing.' },
+  { icon: <Store size={20} />, label: '04 / ON RECORD', title: 'Future Marketplace', desc: 'Spend $GHOSTCAT on future products, apps, and premium tools.' },
+  { icon: <PiggyBank size={20} />, label: '05 / ON RECORD', title: 'Staking Rewards', desc: 'Stake $GHOSTCAT to earn rewards and strengthen the ecosystem.' },
+  { icon: <Flame size={20} />, label: '06 / ON RECORD', title: 'Deflationary Model', desc: 'A share of every fee buys back and burns $GHOSTCAT over time.' },
 ];
 
 export default function WhyGhost() {
@@ -30,7 +30,7 @@ export default function WhyGhost() {
             style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 5vw, 4.5rem)' }}
           >
             Why{' '}
-            <span style={{ color: '#CCFF00' }}>$GHOST</span>?
+            <span style={{ color: '#CCFF00' }}>$GHOSTCAT</span>?
           </h2>
         </motion.div>
 

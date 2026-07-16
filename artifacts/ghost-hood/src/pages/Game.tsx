@@ -54,7 +54,7 @@ export default function Game() {
             className="w-9 h-9 rounded-full overflow-hidden border"
             style={{ borderColor: 'rgba(204,255,0,0.3)' }}
           >
-            <img src={catFaceUrl} alt="GHOST HOOD" className="w-full h-full object-cover" />
+            <img src={catFaceUrl} alt="GHOSTCAT" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col leading-none font-black tracking-wider">
             <span className="text-white text-base">GHOST</span>
@@ -89,8 +89,8 @@ export default function Game() {
           className="text-3xl md:text-4xl font-black tracking-tight"
           style={{ color: '#ccff00' }}
         >
-          $GHOST{' '}
-          <span className="text-white">/ Prince of Ghost Hood</span>
+          $GHOSTCAT{' '}
+          <span className="text-white">/ Prince of GHOSTCAT</span>
         </h1>
         <p
           className="mt-1 text-xs font-bold uppercase tracking-widest"

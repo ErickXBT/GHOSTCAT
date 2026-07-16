@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const phases = [
-  { num: '01', phase: 'PHASE 1', title: 'Launch Token', desc: 'Fair launch of $GHOST and initial liquidity.', status: 'STILL THE FUTURE' },
+  { num: '01', phase: 'PHASE 1', title: 'Launch Token', desc: 'Fair launch of $GHOSTCAT and initial liquidity.', status: 'STILL THE FUTURE' },
   { num: '02', phase: 'PHASE 2', title: 'Build Community', desc: 'Grow the strongest ghost community in Web3.', status: 'STILL THE FUTURE' },
   { num: '03', phase: 'PHASE 3', title: 'Beta Release', desc: 'Early access to exclusive features for our community.', status: 'STILL THE FUTURE' },
   { num: '04', phase: 'PHASE 4', title: 'Public App Launch', desc: 'Full app launch with powerful ghost tools.', status: 'STILL THE FUTURE' },
-  { num: '05', phase: 'PHASE 5', title: 'Merch & Collabs', desc: 'GHOST HOOD merch drops and brand collaborations.', status: 'STILL THE FUTURE' },
+  { num: '05', phase: 'PHASE 5', title: 'Merch & Collabs', desc: 'GHOSTCAT merch drops and brand collaborations.', status: 'STILL THE FUTURE' },
   { num: '06', phase: 'PHASE 6', title: 'Ghost Ecosystem', desc: 'Expand the ecosystem and onboard millions worldwide.', status: 'STILL THE FUTURE' },
 ];
 

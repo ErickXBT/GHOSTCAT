@@ -37,13 +37,14 @@ export default function Hero() {
               className="font-black leading-[0.92] tracking-tight mb-7"
               style={{
                 fontFamily: 'Poppins, sans-serif',
-                fontSize: 'clamp(3rem, 7vw, 6.5rem)',
+                fontSize: 'clamp(2.6rem, 6.5vw, 6rem)',
                 color: '#ffffff',
               }}
             >
               No Stress,<br />
               No Fomo,<br />
-              <span style={{ color: '#CCFF00' }}>Just $GHOSTCAT</span>
+              Just Chill<br />
+              <span style={{ color: '#CCFF00' }}>$GHOSTCAT</span>
             </motion.h1>
 
             <motion.p
@@ -66,7 +67,7 @@ export default function Hero() {
                 className="px-7 py-3 font-black text-sm tracking-widest uppercase rounded-sm transition-all hover:opacity-90 active:scale-95 shadow-[0_0_24px_rgba(204,255,0,0.18)]"
                 style={{ backgroundColor: '#CCFF00', color: '#0B100C' }}
               >
-                Buy $GHOST ↗
+                Buy $GHOSTCAT ↗
               </button>
               <button
                 className="px-7 py-3 font-semibold text-sm tracking-wider uppercase border border-white/15 text-muted-foreground hover:text-white hover:border-white/30 transition-colors rounded-sm"
@@ -92,7 +93,7 @@ export default function Hero() {
                 className="px-2.5 py-1 text-[11px] font-black tracking-widest rounded-sm"
                 style={{ backgroundColor: '#CCFF00', color: '#0B100C' }}
               >
-                $GHOST
+                $GHOSTCAT
               </span>
             </motion.div>
           </div>
@@ -114,7 +115,7 @@ export default function Hero() {
                     <img src={catFaceImg} alt="logo" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-[10px] font-black tracking-[0.2em] uppercase" style={{ color: '#E9F3EA' }}>
-                    GHOST HOOD INC.
+                    GHOSTCAT INC.
                   </span>
                 </div>
                 <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
@@ -130,7 +131,7 @@ export default function Hero() {
                 <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center 60%, rgba(204,255,0,0.06) 0%, transparent 70%)' }} />
                 <motion.img
                   src={mascotImg}
-                  alt="Ghost Hood Mascot"
+                  alt="GHOSTCAT Mascot"
                   className="h-full object-contain relative z-10 pointer-events-none"
                   style={{ mixBlendMode: 'screen', filter: 'brightness(1.05)' }}
                   animate={{ y: [0, -10, 0] }}
@@ -142,7 +143,7 @@ export default function Hero() {
               <div className="border-t border-white/[0.07] px-4 py-4 flex flex-col gap-3">
                 <div className="flex justify-between items-center">
                   <span className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Ghost Cat</span>
-                  <span className="text-xs font-black tracking-wider text-white">GHOST HOOD</span>
+                  <span className="text-xs font-black tracking-wider text-white">GHOSTCAT</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Title</span>

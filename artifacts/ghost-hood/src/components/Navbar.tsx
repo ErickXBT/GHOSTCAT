@@ -6,7 +6,7 @@ import catFaceImg from '@assets/GHOST_HOOD_1784018789875.jpg';
 
 const navLinks = [
   { name: 'Story', href: '#story' },
-  { name: 'Why $GHOST', href: '#why-ghost' },
+  { name: 'Why $GHOSTCAT', href: '#why-ghost' },
   { name: 'Roadmap', href: '#roadmap' },
   { name: 'Sneak Peek', href: '#sneak-peek' },
 ];
@@ -57,13 +57,13 @@ export default function Navbar() {
           className="flex items-center gap-2.5 z-50 group"
         >
           <div className="w-7 h-7 rounded overflow-hidden border border-primary/40 group-hover:border-primary transition-colors shrink-0">
-            <img src={catFaceImg} alt="Ghost Hood" className="w-full h-full object-cover" />
+            <img src={catFaceImg} alt="GHOSTCAT" className="w-full h-full object-cover" />
           </div>
           <span
             className="font-bold tracking-[0.18em] text-sm uppercase"
             style={{ color: '#E9F3EA', fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.18em' }}
           >
-            GHOST HOOD
+            GHOSTCAT
           </span>
         </a>
 
@@ -93,12 +93,12 @@ export default function Navbar() {
           >
             Ghost Game
           </Link>
-          {/* $GHOST badge button — compact rectangular style like $CC */}
+          {/* $GHOSTCAT badge button — compact rectangular style like $CC */}
           <button
             className="px-3.5 py-1.5 text-xs font-black tracking-widest uppercase rounded-sm transition-all hover:opacity-90 active:scale-95"
             style={{ backgroundColor: '#CCFF00', color: '#0B100C' }}
           >
-            $GHOST
+            $GHOSTCAT
           </button>
         </div>
 
@@ -144,7 +144,7 @@ export default function Navbar() {
                   className="px-6 py-3 font-black text-sm tracking-widest uppercase rounded-sm"
                   style={{ backgroundColor: '#CCFF00', color: '#0B100C' }}
                 >
-                  Buy $GHOST
+                  Buy $GHOSTCAT
                 </button>
               </div>
             </nav>

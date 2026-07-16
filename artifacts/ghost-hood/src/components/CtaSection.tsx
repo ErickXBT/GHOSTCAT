@@ -46,7 +46,7 @@ export default function CtaSection() {
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-black tracking-widest uppercase rounded-sm"
               style={{ backgroundColor: '#CCFF00', color: '#0B100C' }}
             >
-              $GHOST
+              $GHOSTCAT
               <span className="opacity-60 text-xs">✦</span>
             </span>
           </div>
@@ -75,7 +75,7 @@ export default function CtaSection() {
               className="px-7 py-3 font-black text-sm tracking-widest uppercase rounded-sm transition-all hover:opacity-90 active:scale-95"
               style={{ backgroundColor: '#CCFF00', color: '#0B100C' }}
             >
-              Buy $GHOST ↗
+              Buy $GHOSTCAT ↗
             </button>
             <button
               className="inline-flex items-center gap-2 px-7 py-3 font-semibold text-sm tracking-wider uppercase border border-white/15 text-muted-foreground hover:text-white hover:border-white/30 transition-colors rounded-sm"
@@ -118,7 +118,7 @@ export default function CtaSection() {
             className="shrink-0 px-2.5 py-1 text-[11px] font-black tracking-widest rounded-sm"
             style={{ backgroundColor: '#CCFF00', color: '#0B100C' }}
           >
-            $GHOST
+            $GHOSTCAT
           </span>
         </motion.div>
       </div>
