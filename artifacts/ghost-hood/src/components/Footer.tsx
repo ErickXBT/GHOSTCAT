@@ -1,6 +1,5 @@
 import React from 'react';
 import { Twitter, Send, MessagesSquare } from 'lucide-react';
-import fullLogoImg from '@assets/1_1784018793699.jpg';
 import catFaceImg from '@assets/GHOST_HOOD_1784018789875.jpg';
 
 export default function Footer() {
@@ -10,84 +9,108 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-background pt-20 pb-10 border-t border-white/5 relative z-10">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 lg:gap-12 mb-16">
-          
-          {/* Brand Column */}
-          <div className="md:col-span-6 lg:col-span-5 flex flex-col items-start">
-            <a href="#home" onClick={scrollToTop} className="flex items-center gap-3 group mb-6">
-              <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/30 group-hover:border-primary transition-colors">
+    <footer className="relative bg-background border-t border-white/[0.06] overflow-hidden" style={{ backgroundColor: '#0B100C' }}>
+      {/* Main footer content */}
+      <div className="container mx-auto px-6 md:px-10 pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-12">
+
+          {/* Brand */}
+          <div className="md:col-span-5 flex flex-col items-start">
+            <a href="#home" onClick={scrollToTop} className="flex items-center gap-2 group mb-4">
+              <div className="w-6 h-6 rounded-sm overflow-hidden border border-primary/30 group-hover:border-primary transition-colors shrink-0">
                 <img src={catFaceImg} alt="Ghost Hood" className="w-full h-full object-cover" />
               </div>
-              <div className="flex flex-col leading-none font-black tracking-wider">
-                <span className="text-white text-xl">GHOST</span>
-                <span className="text-primary text-xl">HOOD</span>
-              </div>
+              <span className="font-bold tracking-[0.18em] text-xs uppercase text-white/80">GHOST HOOD</span>
             </a>
-            
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-8">
-              Your Ghost Companion. Personalized vibes. Ghostlier you. A movement changing how we approach crypto culture.
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-6">
+              The open ghost ecosystem. A stress-free, fomo-free token with on-chain vibes.
             </p>
-            
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-card border border-white/10 flex items-center justify-center text-white hover:text-primary hover:border-primary/50 transition-colors">
-                <Twitter size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-card border border-white/10 flex items-center justify-center text-white hover:text-primary hover:border-primary/50 transition-colors">
-                <Send size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-card border border-white/10 flex items-center justify-center text-white hover:text-primary hover:border-primary/50 transition-colors">
-                <MessagesSquare size={18} />
-              </a>
+            <div className="flex gap-2.5">
+              {[Twitter, Send, MessagesSquare].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-8 h-8 rounded-sm border border-white/10 flex items-center justify-center text-muted-foreground hover:text-white hover:border-white/25 transition-colors"
+                >
+                  <Icon size={14} />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Spacer */}
-          <div className="hidden lg:block lg:col-span-3"></div>
+          <div className="hidden md:block md:col-span-1" />
 
-          {/* Links Columns */}
-          <div className="md:col-span-3 lg:col-span-2 flex flex-col">
-            <h4 className="text-white font-bold tracking-wider uppercase mb-6 text-sm">Product</h4>
-            <nav className="flex flex-col gap-4">
-              {['Why $GHOST', 'Roadmap', 'Sneak Peek'].map((link) => (
-                <a 
-                  key={link} 
-                  href={`#${link.toLowerCase().replace(/ |\$/g, '').replace('peek', 'sneak-peek')}`} 
-                  className="text-muted-foreground text-sm font-medium hover:text-primary transition-colors inline-block w-fit"
+          {/* Product links */}
+          <div className="md:col-span-3 flex flex-col">
+            <h4 className="text-[10px] font-black tracking-[0.22em] uppercase text-muted-foreground mb-5">Product</h4>
+            <nav className="flex flex-col gap-3">
+              {[
+                { label: 'Why $GHOST', href: '#why-ghost' },
+                { label: 'Roadmap', href: '#roadmap' },
+                { label: 'Sneak Peek', href: '#sneak-peek' },
+                { label: 'Ghost Game', href: '/game' },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-muted-foreground text-sm hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Resources links */}
+          <div className="md:col-span-3 flex flex-col">
+            <h4 className="text-[10px] font-black tracking-[0.22em] uppercase text-muted-foreground mb-5">Resources</h4>
+            <nav className="flex flex-col gap-3">
+              {['X (Twitter)', 'Telegram', 'DexScreener', 'GitHub'].map((link) => (
+                <a
+                  key={link}
+                  href="#"
+                  className="text-muted-foreground text-sm hover:text-white transition-colors"
                 >
                   {link}
                 </a>
               ))}
             </nav>
           </div>
-          
-          <div className="md:col-span-3 lg:col-span-2 flex flex-col">
-            <h4 className="text-white font-bold tracking-wider uppercase mb-6 text-sm">Community</h4>
-            <nav className="flex flex-col gap-4">
-              {['X (Twitter)', 'Telegram', 'DexScreener'].map((link) => (
-                <a 
-                  key={link} 
-                  href="#" 
-                  className="text-muted-foreground text-sm font-medium hover:text-primary transition-colors inline-block w-fit"
-                >
-                  {link}
-                </a>
-              ))}
-            </nav>
-          </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-          <p className="text-muted-foreground/60 text-xs font-medium">
-            © {new Date().getFullYear()} GHOST HOOD. All rights reserved.
+        {/* Bottom bar */}
+        <div className="pt-6 border-t border-white/[0.06] flex flex-col md:flex-row justify-between items-center gap-3">
+          <p className="text-muted-foreground/50 text-xs">
+            MIT licensed · © {new Date().getFullYear()} Ghost Hood. GHOST HOOD is a meme utility token — not financial advice.
           </p>
-          <p className="text-muted-foreground/60 text-xs font-medium uppercase tracking-wider">
-            GHOST HOOD is a meme utility token. Nothing here is financial advice.
-          </p>
+          <a
+            href="#home"
+            onClick={scrollToTop}
+            className="text-muted-foreground/50 text-xs hover:text-white transition-colors"
+          >
+            Back to top ↑
+          </a>
         </div>
+      </div>
+
+      {/* Giant watermark text */}
+      <div
+        className="w-full overflow-hidden select-none pointer-events-none"
+        aria-hidden="true"
+        style={{ marginTop: '-0.5rem' }}
+      >
+        <p
+          className="font-black text-center leading-none tracking-tight whitespace-nowrap"
+          style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontSize: 'clamp(4rem, 18vw, 18rem)',
+            color: 'rgba(255,255,255,0.028)',
+            lineHeight: 0.85,
+          }}
+        >
+          GHOSTHOOD
+        </p>
       </div>
     </footer>
   );

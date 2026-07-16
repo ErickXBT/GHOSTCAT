@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import Ticker from '../components/Ticker';
 import Story from '../components/Story';
 import WhyGhost from '../components/WhyGhost';
 import Roadmap from '../components/Roadmap';
@@ -15,7 +16,9 @@ export default function Home() {
       
       <main>
         <Hero />
+        <Ticker />
         <Story />
+        <Ticker />
         <WhyGhost />
         <Roadmap />
         <SneakPeek />

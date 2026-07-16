@@ -3,97 +3,53 @@ import { motion } from 'framer-motion';
 import { Crown, Vote, Coins, Store, PiggyBank, Flame } from 'lucide-react';
 
 const features = [
-  {
-    icon: <Crown size={24} className="text-primary" />,
-    title: "Ghost Premium Access",
-    desc: "Unlock exclusive features and deeply personalized ghost insights."
-  },
-  {
-    icon: <Vote size={24} className="text-primary" />,
-    title: "Governance",
-    desc: "Vote on key decisions and help shape the future of GHOST HOOD."
-  },
-  {
-    icon: <Coins size={24} className="text-primary" />,
-    title: "Ecosystem Rewards",
-    desc: "Earn $GHOST for staying active, hitting goals, and contributing."
-  },
-  {
-    icon: <Store size={24} className="text-primary" />,
-    title: "Future Marketplace",
-    desc: "Spend $GHOST on future products, apps, and premium tools."
-  },
-  {
-    icon: <PiggyBank size={24} className="text-primary" />,
-    title: "Staking Rewards",
-    desc: "Stake $GHOST to earn rewards and strengthen the ecosystem."
-  },
-  {
-    icon: <Flame size={24} className="text-primary" />,
-    title: "Deflationary Model",
-    desc: "A share of every fee buys back and burns $GHOST over time."
-  }
+  { icon: <Crown size={20} />, label: '01 / ON RECORD', title: 'Ghost Premium Access', desc: 'Unlock exclusive features and deeply personalized ghost insights.' },
+  { icon: <Vote size={20} />, label: '02 / ON RECORD', title: 'Governance', desc: 'Vote on key decisions and help shape the future of GHOST HOOD.' },
+  { icon: <Coins size={20} />, label: '03 / ON RECORD', title: 'Ecosystem Rewards', desc: 'Earn $GHOST for staying active, hitting goals, and contributing.' },
+  { icon: <Store size={20} />, label: '04 / ON RECORD', title: 'Future Marketplace', desc: 'Spend $GHOST on future products, apps, and premium tools.' },
+  { icon: <PiggyBank size={20} />, label: '05 / ON RECORD', title: 'Staking Rewards', desc: 'Stake $GHOST to earn rewards and strengthen the ecosystem.' },
+  { icon: <Flame size={20} />, label: '06 / ON RECORD', title: 'Deflationary Model', desc: 'A share of every fee buys back and burns $GHOST over time.' },
 ];
 
 export default function WhyGhost() {
   return (
-    <section id="why-ghost" className="relative py-32 bg-background border-t border-white/5 overflow-hidden">
-      {/* Background patterns */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
+    <section id="why-ghost" className="relative py-28 overflow-hidden grid-bg" style={{ backgroundColor: '#0B100C' }}>
+      <div className="container mx-auto px-6 md:px-10">
+        {/* Section label */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-4">
+            MEMO 03 // MINUTES FROM THE LAST ALL-HANDS
+          </p>
+          <h2
+            className="font-black leading-[0.93] tracking-tight text-white max-w-2xl"
+            style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 5vw, 4.5rem)' }}
+          >
+            Why{' '}
+            <span style={{ color: '#CCFF00' }}>$GHOST</span>?
+          </h2>
+        </motion.div>
 
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col items-start mb-20 max-w-3xl">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-primary font-bold tracking-widest text-xs uppercase mb-4"
-          >
-            UTILITY
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight"
-          >
-            Why <span className="text-primary text-glow">$GHOST</span>?
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground"
-          >
-            One token, an entire ghost ecosystem. Here's what $GHOST unlocks.
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, i) => (
-            <motion.div 
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px border border-white/[0.07] rounded-lg overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+          {features.map((f, i) => (
+            <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:bg-card hover:border-primary/50 transition-all duration-300 group box-glow-hover"
+              transition={{ delay: i * 0.08 }}
+              className="flex flex-col p-7 border-b lg:border-b-0 lg:border-r border-white/[0.07] last:border-0 group hover:bg-white/[0.02] transition-colors cursor-default"
             >
-              <div className="w-14 h-14 rounded-xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300 shadow-lg">
-                {feature.icon}
-              </div>
-              
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
-                {feature.title}
+              <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-5">{f.label}</p>
+              <h3 className="text-white font-bold text-base mb-2 group-hover:text-primary transition-colors">
+                {f.title}
               </h3>
-              
-              <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground transition-colors">
-                {feature.desc}
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(233,243,234,0.5)' }}>
+                {f.desc}
               </p>
             </motion.div>
           ))}

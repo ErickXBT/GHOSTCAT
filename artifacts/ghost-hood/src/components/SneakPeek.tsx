@@ -5,127 +5,114 @@ import mascotImg from '@assets/2_1784019392022.png';
 
 export default function SneakPeek() {
   return (
-    <section id="sneak-peek" className="relative py-32 bg-background border-t border-white/5 overflow-hidden">
-      {/* Background radial glows */}
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
+    <section id="sneak-peek" className="relative py-28 overflow-hidden grid-bg" style={{ backgroundColor: '#0B100C' }}>
+      <div className="container mx-auto px-6 md:px-10">
+        {/* Section label */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-4">
+            MEMO 04 // WHAT'S COMING
+          </p>
+          <h2
+            className="font-black leading-[0.93] tracking-tight text-white"
+            style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 5vw, 4.5rem)' }}
+          >
+            Sneak Peek:{' '}
+            <span style={{ color: '#CCFF00' }}>What's Coming</span>
+          </h2>
+        </motion.div>
 
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col items-start mb-20 max-w-3xl">
-          <motion.h2 
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px border border-white/[0.07] rounded-lg overflow-hidden auto-rows-auto" style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+
+          {/* Card 1: AI Chat */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight"
+            className="lg:row-span-2 p-7 flex flex-col border-b lg:border-b-0 lg:border-r border-white/[0.07] group hover:bg-white/[0.02] transition-colors min-h-[320px]"
           >
-            Sneak Peek: <span className="text-primary text-glow">What's Coming</span>
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-muted-foreground"
-          >
-            A first look at the GHOST HOOD experience — designed to make ghosting effortless.
-          </motion.p>
-        </div>
-
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
-          
-          {/* Card 1: AI Chat (Tall - spans 2 rows) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0 }}
-            className="md:col-span-1 lg:row-span-2 bg-card border border-white/10 rounded-3xl p-6 flex flex-col relative overflow-hidden group hover:border-primary/50 transition-colors shadow-xl"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <MessageSquare size={20} className="text-primary" />
-              <h3 className="text-white font-bold tracking-wide">AI Chat</h3>
-            </div>
-            
-            <div className="flex-1 flex flex-col gap-4 mt-auto">
-              <div className="bg-background border border-white/5 rounded-2xl rounded-tr-sm p-4 w-[85%] self-start transform transition-transform group-hover:translate-x-2">
-                <p className="text-sm text-foreground">How do I get more $GHOST?</p>
+            <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-5">01 / ON RECORD</p>
+            <h3 className="text-white font-bold text-base mb-6 flex items-center gap-2">
+              <MessageSquare size={16} style={{ color: '#CCFF00' }} /> AI Chat
+            </h3>
+            <div className="flex flex-col gap-4 flex-1">
+              <div className="border border-white/[0.07] rounded-lg rounded-tr-sm p-3.5 w-[82%] self-start text-sm" style={{ backgroundColor: 'rgba(255,255,255,0.03)', color: '#E9F3EA' }}>
+                How do I get more $GHOST?
               </div>
-              
-              <div className="bg-primary/10 border border-primary/20 rounded-2xl rounded-tl-sm p-4 w-[90%] self-end relative transform transition-transform group-hover:-translate-x-2">
-                <div className="absolute -left-3 top-0 w-8 h-8 rounded-full bg-background border border-primary/30 flex items-center justify-center p-1 overflow-hidden">
-                  <img src={mascotImg} alt="Ghost Bot" className="w-full h-full object-cover mix-blend-lighten scale-150" />
-                </div>
-                <p className="text-sm text-primary-foreground leading-relaxed">
-                  Stake your tokens and participate in community missions to earn more $GHOST...
-                </p>
+              <div className="border border-white/[0.07] rounded-lg rounded-tl-sm p-3.5 w-[88%] self-end text-sm" style={{ backgroundColor: 'rgba(204,255,0,0.07)', color: 'rgba(233,243,234,0.75)', borderColor: 'rgba(204,255,0,0.2)' }}>
+                Stake your tokens and participate in community missions to earn more $GHOST...
               </div>
             </div>
-            
-            {/* Input mock */}
-            <div className="mt-6 bg-background rounded-full border border-white/10 px-4 py-3 flex items-center gap-3">
-              <div className="flex-1 bg-white/5 h-2 rounded-full" />
-              <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-primary" />
+            <div className="mt-5 border border-white/[0.07] rounded-sm px-4 py-2.5 flex items-center gap-3" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
+              <div className="flex-1 h-1.5 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} />
+              <div className="w-4 h-4 rounded-sm flex items-center justify-center" style={{ backgroundColor: 'rgba(204,255,0,0.2)' }}>
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#CCFF00' }} />
               </div>
             </div>
           </motion.div>
 
           {/* Card 2: Ghost Score */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="bg-card border border-white/10 rounded-3xl p-6 relative overflow-hidden group hover:border-primary/50 transition-colors shadow-xl flex flex-col justify-center items-center"
+            transition={{ delay: 0.08 }}
+            className="p-7 flex flex-col border-b lg:border-b-0 lg:border-r border-white/[0.07] group hover:bg-white/[0.02] transition-colors"
           >
-            <h3 className="absolute top-6 left-6 text-white font-bold tracking-wide flex items-center gap-2">
-              <Flame size={18} className="text-primary" /> Ghost Score
+            <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-5">02 / ON RECORD</p>
+            <h3 className="text-white font-bold text-base mb-5 flex items-center gap-2">
+              <Flame size={16} style={{ color: '#CCFF00' }} /> Ghost Score
             </h3>
-            
-            <div className="relative w-36 h-36 flex items-center justify-center mt-6">
-              <svg className="w-full h-full transform -rotate-90">
-                <circle cx="72" cy="72" r="60" className="stroke-background" strokeWidth="8" fill="transparent" />
-                <circle cx="72" cy="72" r="60" className="stroke-primary" strokeWidth="8" fill="transparent" strokeDasharray="377" strokeDashoffset="50" strokeLinecap="round" />
-              </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                <span className="text-3xl font-black text-white">9,200</span>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full mt-1">Legendary</span>
+            <div className="flex items-center gap-5">
+              <div className="relative w-24 h-24 shrink-0">
+                <svg className="w-full h-full -rotate-90" viewBox="0 0 96 96">
+                  <circle cx="48" cy="48" r="38" stroke="rgba(255,255,255,0.07)" strokeWidth="6" fill="none" />
+                  <circle cx="48" cy="48" r="38" stroke="#CCFF00" strokeWidth="6" fill="none" strokeDasharray="239" strokeDashoffset="33" strokeLinecap="round" />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-xl font-black text-white">9.2k</span>
+                </div>
+              </div>
+              <div>
+                <span className="block text-xs font-black tracking-wider uppercase mb-1" style={{ color: '#CCFF00' }}>Legendary</span>
+                <span className="text-muted-foreground text-xs">Top 1% of all ghost holders</span>
               </div>
             </div>
           </motion.div>
 
           {/* Card 3: Token Stats */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="bg-card border border-white/10 rounded-3xl p-6 relative overflow-hidden group hover:border-primary/50 transition-colors shadow-xl flex flex-col"
+            transition={{ delay: 0.16 }}
+            className="p-7 flex flex-col border-b border-white/[0.07] group hover:bg-white/[0.02] transition-colors"
           >
-            <h3 className="text-white font-bold tracking-wide flex items-center gap-2 mb-6">
-              <LineChart size={18} className="text-primary" /> Token Stats
+            <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-5">03 / ON RECORD</p>
+            <h3 className="text-white font-bold text-base mb-5 flex items-center gap-2">
+              <LineChart size={16} style={{ color: '#CCFF00' }} /> Token Stats
             </h3>
-            
-            <div className="mb-6">
-              <span className="text-3xl font-black text-white">2,450</span>
-              <span className="text-primary font-bold ml-2">$GHOST</span>
+            <div className="text-2xl font-black text-white mb-4">
+              2,450 <span className="text-sm font-bold" style={{ color: '#CCFF00' }}>$GHOST</span>
             </div>
-            
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               {[
-                { label: "Staked", percent: "65%", color: "bg-primary" },
-                { label: "Earned", percent: "25%", color: "bg-white" },
-                { label: "Burned", percent: "10%", color: "bg-muted-foreground" }
-              ].map((stat, i) => (
-                <div key={i} className="flex flex-col gap-1.5">
-                  <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-muted-foreground">{stat.label}</span>
-                    <span className="text-white">{stat.percent}</span>
+                { label: 'Staked', pct: '65%' },
+                { label: 'Earned', pct: '25%' },
+                { label: 'Burned', pct: '10%' },
+              ].map((s, i) => (
+                <div key={i}>
+                  <div className="flex justify-between text-xs mb-1">
+                    <span className="text-muted-foreground">{s.label}</span>
+                    <span className="text-white font-bold">{s.pct}</span>
                   </div>
-                  <div className="h-1.5 w-full bg-background rounded-full overflow-hidden">
-                    <div className={`h-full ${stat.color} rounded-full`} style={{ width: stat.percent }} />
+                  <div className="h-1 w-full rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>
+                    <div className="h-full rounded-full" style={{ width: s.pct, backgroundColor: i === 0 ? '#CCFF00' : i === 1 ? 'rgba(233,243,234,0.5)' : 'rgba(233,243,234,0.2)' }} />
                   </div>
                 </div>
               ))}
@@ -133,60 +120,58 @@ export default function SneakPeek() {
           </motion.div>
 
           {/* Card 4: Daily Missions */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="md:col-span-2 lg:col-span-1 bg-card border border-white/10 rounded-3xl p-6 relative overflow-hidden group hover:border-primary/50 transition-colors shadow-xl flex flex-col"
+            transition={{ delay: 0.24 }}
+            className="p-7 flex flex-col border-b lg:border-b-0 lg:border-r border-white/[0.07] group hover:bg-white/[0.02] transition-colors"
           >
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-white font-bold tracking-wide flex items-center gap-2">
-                <CheckCircle2 size={18} className="text-primary" /> Daily Missions
+            <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-5">04 / ON RECORD</p>
+            <div className="flex justify-between items-start mb-5">
+              <h3 className="text-white font-bold text-base flex items-center gap-2">
+                <CheckCircle2 size={16} style={{ color: '#CCFF00' }} /> Daily Missions
               </h3>
-              <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-md">
-                +50 $GHOST earned today
+              <span className="text-[10px] font-black tracking-wider uppercase px-2 py-1 rounded-sm" style={{ backgroundColor: 'rgba(204,255,0,0.1)', color: '#CCFF00' }}>
+                +50 today
               </span>
             </div>
-            
-            <div className="flex flex-col gap-3 flex-1">
+            <div className="flex flex-col gap-2.5">
               {[
-                { task: "Share a post", done: true },
-                { task: "Stake tokens", done: true },
-                { task: "Vote on proposal", done: false }
-              ].map((mission, i) => (
-                <div key={i} className={`flex items-center gap-4 p-3 rounded-xl border ${mission.done ? 'bg-primary/5 border-primary/20' : 'bg-background border-white/5'} transition-colors`}>
-                  <div className={`w-5 h-5 rounded-full flex items-center justify-center border ${mission.done ? 'bg-primary border-primary' : 'border-white/20'}`}>
-                    {mission.done && <CheckCircle2 size={12} className="text-background" />}
+                { task: 'Share a post', done: true },
+                { task: 'Stake tokens', done: true },
+                { task: 'Vote on proposal', done: false },
+              ].map((m, i) => (
+                <div key={i} className={`flex items-center gap-3 p-3 rounded-sm border ${m.done ? 'border-primary/20' : 'border-white/[0.07]'}`} style={{ backgroundColor: m.done ? 'rgba(204,255,0,0.05)' : 'rgba(255,255,255,0.02)' }}>
+                  <div className={`w-4 h-4 rounded-sm flex items-center justify-center border ${m.done ? '' : 'border-white/20'}`} style={m.done ? { backgroundColor: '#CCFF00', borderColor: '#CCFF00' } : {}}>
+                    {m.done && <span className="text-[8px] font-black" style={{ color: '#0B100C' }}>✓</span>}
                   </div>
-                  <span className={`text-sm font-semibold ${mission.done ? 'text-white' : 'text-muted-foreground'}`}>
-                    {mission.task}
-                  </span>
-                  <span className="ml-auto text-xs font-bold text-primary">+10</span>
+                  <span className={`text-sm ${m.done ? 'text-white' : 'text-muted-foreground'}`}>{m.task}</span>
+                  <span className="ml-auto text-xs font-bold" style={{ color: '#CCFF00' }}>+10</span>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Card 5: And much more... */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+          {/* Card 5: And much more */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="md:col-span-2 lg:col-span-1 bg-gradient-to-br from-card to-primary/10 border border-primary/20 rounded-3xl p-6 relative overflow-hidden group hover:shadow-[0_0_30px_rgba(204,255,0,0.15)] transition-all flex items-center justify-center"
+            transition={{ delay: 0.32 }}
+            className="p-7 flex items-center justify-between relative overflow-hidden group hover:bg-white/[0.02] transition-colors"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(204,255,0,0.2)_0%,transparent_70%)]" />
-            
-            <div className="z-10 flex flex-col items-center text-center">
-              <h3 className="text-2xl font-black text-white mb-2 drop-shadow-lg">And much more...</h3>
-              <p className="text-primary font-bold text-sm">Join the community to unlock</p>
+            <div className="relative z-10">
+              <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-4">05 / ON RECORD</p>
+              <h3 className="text-white font-bold text-lg mb-1">
+                <span style={{ color: '#CCFF00' }}>Ghost Cat</span> — lets double<br />click on that
+              </h3>
+              <p className="text-sm text-muted-foreground">Join the community to unlock</p>
             </div>
-            
-            <img 
-              src={mascotImg} 
-              alt="Magic Ghost" 
-              className="absolute -right-10 -bottom-10 w-64 h-64 object-contain mix-blend-lighten opacity-50 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700" 
+            <img
+              src={mascotImg}
+              alt="Ghost"
+              className="absolute -right-6 bottom-0 h-32 object-contain mix-blend-screen opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500 pointer-events-none"
             />
           </motion.div>
 

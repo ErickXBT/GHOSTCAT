@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -32,6 +32,7 @@
   --color-destructive-foreground: hsl(var(--destructive-foreground));
 
   --font-sans: var(--app-font-sans);
+  --font-display: var(--app-font-display);
   
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -42,10 +43,10 @@
 :root {
   --background: 132 18% 5%; /* #0B100C */
   --foreground: 126 31% 93%; /* #E9F3EA */
-  --border: 120 12% 15%; /* Dark green-grey */
-  --card: 120 12% 9%; /* Slightly lighter than bg #161c16 approx */
+  --border: 120 12% 15%;
+  --card: 120 10% 8%;
   --card-foreground: 126 31% 93%;
-  --card-border: 120 12% 18%;
+  --card-border: 120 10% 13%;
   
   --primary: 74 100% 50%; /* #CCFF00 */
   --primary-foreground: 132 18% 5%;
@@ -54,7 +55,7 @@
   --secondary-foreground: 126 31% 93%;
   
   --muted: 120 12% 12%;
-  --muted-foreground: 126 31% 70%;
+  --muted-foreground: 126 20% 55%;
   
   --accent: 74 100% 50%;
   --accent-foreground: 132 18% 5%;
@@ -65,23 +66,24 @@
   --input: 120 12% 20%;
   --ring: 74 100% 50%;
 
-  --app-font-sans: 'Poppins', sans-serif;
-  --radius: 0.75rem;
+  --app-font-sans: 'Space Grotesk', 'Poppins', sans-serif;
+  --app-font-display: 'Poppins', sans-serif;
+  --radius: 0.5rem;
 }
 
 .dark {
   --background: 132 18% 5%;
   --foreground: 126 31% 93%;
   --border: 120 12% 15%;
-  --card: 120 12% 9%;
+  --card: 120 10% 8%;
   --card-foreground: 126 31% 93%;
-  --card-border: 120 12% 18%;
+  --card-border: 120 10% 13%;
   --primary: 74 100% 50%;
   --primary-foreground: 132 18% 5%;
   --secondary: 120 12% 15%;
   --secondary-foreground: 126 31% 93%;
   --muted: 120 12% 12%;
-  --muted-foreground: 126 31% 70%;
+  --muted-foreground: 126 20% 55%;
   --accent: 74 100% 50%;
   --accent-foreground: 132 18% 5%;
   --destructive: 0 84% 60%;
@@ -99,7 +101,25 @@
   }
 }
 
-/* Custom Utilities for the Glow Effects */
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(204, 255, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204, 255, 0, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+/* Glow utilities */
 @layer utilities {
   .text-glow {
     text-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
@@ -108,7 +128,7 @@
     box-shadow: 0 0 20px rgba(204, 255, 0, 0.2);
   }
   .box-glow-hover:hover {
-    box-shadow: 0 0 30px rgba(204, 255, 0, 0.4);
-    border-color: rgba(204, 255, 0, 0.5);
+    box-shadow: 0 0 30px rgba(204, 255, 0, 0.15);
+    border-color: rgba(204, 255, 0, 0.3);
   }
 }
