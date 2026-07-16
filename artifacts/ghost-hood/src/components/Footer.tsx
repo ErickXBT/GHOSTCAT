@@ -66,7 +66,7 @@ export default function Footer() {
           <div className="md:col-span-3 flex flex-col">
             <h4 className="text-[10px] font-black tracking-[0.22em] uppercase text-muted-foreground mb-5">Resources</h4>
             <nav className="flex flex-col gap-3">
-              {['X (Twitter)', 'Telegram', 'DexScreener', 'GitHub'].map((link) => (
+              {['X (Twitter)', 'Telegram', 'DexScreener'].map((link) => (
                 <a
                   key={link}
                   href="#"

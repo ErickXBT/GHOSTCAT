@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Copy, Check, Twitter, Send, Activity } from 'lucide-react';
+import { Twitter, Send, Activity } from 'lucide-react';
 
 export default function CtaSection() {
-  const [copied, setCopied] = useState(false);
-  const contractAddress = '0xdc73a7295d1d9be1543d96e333950af7...';
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText('0xdc73a7295d1d9be1543d96e333950af7ghost');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const contractAddress = 'TBA — Contract not yet deployed';
 
   return (
     <section className="py-28 px-6 md:px-10 grid-bg" style={{ backgroundColor: '#0B100C' }}>
@@ -53,20 +46,11 @@ export default function CtaSection() {
 
           {/* Contract Address */}
           <div
-            className="border border-white/[0.07] rounded-lg px-5 py-4 mb-6 flex items-center justify-between gap-4 text-left mx-auto max-w-md"
+            className="border border-white/[0.07] rounded-lg px-5 py-4 mb-6 text-left mx-auto max-w-md"
             style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}
           >
-            <div>
-              <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-1">CONTRACT ADDRESS</p>
-              <code className="text-sm font-mono text-white/70 tracking-wider">{contractAddress}</code>
-            </div>
-            <button
-              onClick={handleCopy}
-              className="shrink-0 w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-muted-foreground hover:text-white hover:border-white/25 transition-colors"
-              aria-label="Copy"
-            >
-              {copied ? <Check size={15} style={{ color: '#CCFF00' }} /> : <Copy size={15} />}
-            </button>
+            <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-1">CONTRACT ADDRESS</p>
+            <code className="text-sm font-mono tracking-wider" style={{ color: 'rgba(204,255,0,0.5)' }}>{contractAddress}</code>
           </div>
 
           {/* CTA row */}
