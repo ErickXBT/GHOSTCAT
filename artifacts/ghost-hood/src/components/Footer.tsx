@@ -109,7 +109,7 @@ export default function Footer() {
             lineHeight: 0.85,
           }}
         >
-          GHOSTHOOD
+          GHOSTCAT
         </p>
       </div>
     </footer>
