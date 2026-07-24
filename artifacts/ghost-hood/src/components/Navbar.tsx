@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'wouter';
-import catFaceImg from '@assets/GHOST_HOOD_1784018789875.jpg';
+import catFaceImg from '@assets/ghostcat_logo.jpg';
 
 const navLinks = [
   { name: 'Story', href: '#story' },
@@ -88,6 +88,12 @@ export default function Navbar() {
         {/* Right side buttons */}
         <div className="hidden md:flex items-center gap-2.5">
           <Link
+            href="/healthcare"
+            className="px-3 py-1.5 text-xs font-semibold tracking-wider uppercase border border-white/15 text-muted-foreground hover:text-white hover:border-white/30 transition-colors rounded-sm"
+          >
+            AI Healthcare
+          </Link>
+          <Link
             href="/game"
             className="px-3 py-1.5 text-xs font-semibold tracking-wider uppercase border border-white/15 text-muted-foreground hover:text-white hover:border-white/30 transition-colors rounded-sm"
           >
@@ -135,6 +141,11 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="mt-8 flex flex-col gap-3">
+                <Link href="/healthcare" onClick={() => setMobileMenuOpen(false)}>
+                  <span className="block px-6 py-3 border border-white/15 text-center font-semibold tracking-wider uppercase text-sm text-white rounded-sm">
+                    AI Healthcare
+                  </span>
+                </Link>
                 <Link href="/game" onClick={() => setMobileMenuOpen(false)}>
                   <span className="block px-6 py-3 border border-white/15 text-center font-semibold tracking-wider uppercase text-sm text-white rounded-sm">
                     Ghost Game

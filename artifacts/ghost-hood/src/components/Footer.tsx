@@ -1,6 +1,6 @@
 import React from 'react';
 import { Twitter, Send, MessagesSquare } from 'lucide-react';
-import catFaceImg from '@assets/GHOST_HOOD_1784018789875.jpg';
+import catFaceImg from '@assets/ghostcat_logo.jpg';
 
 export default function Footer() {
   const scrollToTop = (e: React.MouseEvent) => {
@@ -26,10 +26,16 @@ export default function Footer() {
               The open ghost ecosystem. A stress-free, fomo-free token with on-chain vibes.
             </p>
             <div className="flex gap-2.5">
-              {[Twitter, Send, MessagesSquare].map((Icon, i) => (
+              {[
+                { Icon: Twitter, href: "https://x.com/heyghostcat" },
+                { Icon: Send, href: "https://t.me/heyghostcat" },
+                { Icon: MessagesSquare, href: "#" }
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target={href !== '#' ? '_blank' : undefined}
+                  rel={href !== '#' ? 'noopener noreferrer' : undefined}
                   className="w-8 h-8 rounded-sm border border-white/10 flex items-center justify-center text-muted-foreground hover:text-white hover:border-white/25 transition-colors"
                 >
                   <Icon size={14} />
@@ -49,6 +55,7 @@ export default function Footer() {
                 { label: 'Why $GHOSTCAT', href: '#why-ghost' },
                 { label: 'Roadmap', href: '#roadmap' },
                 { label: 'Sneak Peek', href: '#sneak-peek' },
+                { label: 'AI Healthcare', href: '/healthcare' },
                 { label: 'Ghost Game', href: '/game' },
               ].map((link) => (
                 <a
@@ -66,13 +73,19 @@ export default function Footer() {
           <div className="md:col-span-3 flex flex-col">
             <h4 className="text-[10px] font-black tracking-[0.22em] uppercase text-muted-foreground mb-5">Resources</h4>
             <nav className="flex flex-col gap-3">
-              {['X (Twitter)', 'Telegram', 'DexScreener'].map((link) => (
+              {[
+                { label: 'X (Twitter)', href: 'https://x.com/heyghostcat' },
+                { label: 'Telegram', href: 'https://t.me/heyghostcat' },
+                { label: 'DexScreener', href: '#' }
+              ].map((link) => (
                 <a
-                  key={link}
-                  href="#"
+                  key={link.label}
+                  href={link.href}
+                  target={link.href !== '#' ? '_blank' : undefined}
+                  rel={link.href !== '#' ? 'noopener noreferrer' : undefined}
                   className="text-muted-foreground text-sm hover:text-white transition-colors"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </nav>

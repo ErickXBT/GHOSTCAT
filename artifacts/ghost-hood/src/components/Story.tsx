@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import mascotImg from '@assets/2_1784019392022.png';
+import legendBannerImg from '@assets/ghostcat_legend_banner.png';
 
 const cards = [
   {
@@ -65,13 +65,12 @@ export default function Story() {
                 </span>
               </div>
 
-              {/* Mascot thumbnail */}
-              <div className="h-36 flex items-center justify-center mb-6 relative">
-                <div className="absolute inset-0 rounded-lg pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, rgba(204,255,0,0.06) 0%, transparent 70%)' }} />
+              {/* Legend Banner */}
+              <div className="mx-[-2rem] mb-6 relative overflow-hidden aspect-[1024/373]">
                 <img
-                  src={mascotImg}
+                  src={legendBannerImg}
                   alt={`Ghost Story ${card.num}`}
-                  className="h-full object-contain mix-blend-screen opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 

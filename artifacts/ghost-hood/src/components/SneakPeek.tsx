@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, MessageSquare, Flame, Coins, LineChart } from 'lucide-react';
-import mascotImg from '@assets/2_1784019392022.png';
+import peekCatImg from '@assets/ghostcat_peek_transparent.png';
 
 export default function SneakPeek() {
   return (
@@ -169,9 +169,9 @@ export default function SneakPeek() {
               <p className="text-sm text-muted-foreground">Join the community to unlock</p>
             </div>
             <img
-              src={mascotImg}
+              src={peekCatImg}
               alt="Ghost"
-              className="absolute -right-6 bottom-0 h-32 object-contain mix-blend-screen opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500 pointer-events-none"
+              className="absolute right-0 bottom-0 h-40 object-contain transition-all duration-500 group-hover:scale-105 origin-bottom-right pointer-events-none"
             />
           </motion.div>
 

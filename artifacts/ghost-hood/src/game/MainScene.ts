@@ -44,6 +44,9 @@ interface ArrowData {
   vy: number;
   alive: boolean;
   stuckTimer: number;  // >0 = stuck, 0 = flying
+  stuckTargetIndex?: number;
+  stuckOffsetY?: number;
+  stuckAngle?: number;
 }
 
 // ─── Scene ────────────────────────────────────────────────────────────────────
@@ -115,14 +118,14 @@ export class MainScene extends Phaser.Scene {
 
     this.buildTargets();
 
-    this.arrowGfx  = this.add.graphics().setDepth(3);
+    this.arrowGfx  = this.add.graphics().setDepth(6);
     this.aimGfx    = this.add.graphics().setDepth(6);
     this.bowGfx    = this.add.graphics().setDepth(7);
     this.boneGfx   = this.add.graphics().setDepth(8);
     this.windGfx   = this.add.graphics().setDepth(10);
     this.powerGfx  = this.add.graphics().setDepth(20);
 
-    this.buildMascot();
+    // this.buildMascot();
     this.buildHUD();
     this.buildGameOver();
 
@@ -252,10 +255,9 @@ export class MainScene extends Phaser.Scene {
   private buildMascot() {
     if (!this.textures.exists('mascot')) return;
 
-    // Scale down so the character is game-appropriate (head ~60px on 500px canvas)
+    // Scale down so the character is game-appropriate
     this.mascot = this.add.image(PLAYER_X, PLAYER_Y, 'mascot')
-      .setScale(0.026)
-      .setBlendMode(Phaser.BlendModes.SCREEN)
+      .setScale(0.18)
       .setDepth(5)
       .setOrigin(0.5, 1);   // anchor to feet
 
@@ -360,12 +362,11 @@ export class MainScene extends Phaser.Scene {
   // ══════════════════════════════════════════════════════════════════════════
   // ARROWS  (all arrows drawn onto one Graphics, cleared each frame)
   // ══════════════════════════════════════════════════════════════════════════
-  private fireArrow() {
+  private fireArrow(power: number) {
     if (this.arrowsLeft <= 0 || this.gameOver) return;
     this.arrowsLeft--;
 
     const angle = Math.atan2(this.my - PLAYER_Y, this.mx - PLAYER_X);
-    const power = this.chargePower();
 
     this.arrows.push({
       x: PLAYER_X + Math.cos(angle) * 25,
@@ -387,7 +388,14 @@ export class MainScene extends Phaser.Scene {
 
       if (a.stuckTimer > 0) {
         a.stuckTimer -= dt;
-        if (a.stuckTimer <= 0) a.alive = false;
+        if (a.stuckTimer <= 0) {
+          a.alive = false;
+        } else if (a.stuckTargetIndex !== undefined && a.stuckTargetIndex !== -1) {
+          const t = this.targets[a.stuckTargetIndex];
+          if (t) {
+            a.y = this.targetCY(t) + (a.stuckOffsetY || 0);
+          }
+        }
         continue;
       }
 
@@ -402,6 +410,7 @@ export class MainScene extends Phaser.Scene {
         a.y = FLOOR_Y - 2;
         a.vx = 0; a.vy = 0;
         a.stuckTimer = 2.5;
+        a.stuckTargetIndex = -1;
         continue;
       }
 
@@ -432,6 +441,8 @@ export class MainScene extends Phaser.Scene {
 
       if (isFlying) {
         angle = Math.atan2(a.vy, a.vx);
+      } else if (a.stuckTargetIndex !== undefined && a.stuckTargetIndex !== -1) {
+        angle = a.stuckAngle || 0;
       } else {
         // Stuck in floor — nearly horizontal
         angle = -0.15;
@@ -476,7 +487,8 @@ export class MainScene extends Phaser.Scene {
     }
 
     // Targets
-    for (const t of this.targets) {
+    for (let i = 0; i < this.targets.length; i++) {
+      const t = this.targets[i];
       const cy   = this.targetCY(t);
       const dist = Math.hypot(a.x - t.cx, a.y - cy);
       if (dist > OUTER_R) continue;
@@ -487,6 +499,11 @@ export class MainScene extends Phaser.Scene {
 
       this.score += pts;
       a.stuckTimer = 2.0;
+      a.stuckTargetIndex = i;
+      a.stuckOffsetY = a.y - cy;
+      a.stuckAngle = Math.atan2(a.vy, a.vx);
+      a.vx = 0;
+      a.vy = 0;
       this.flashFeedback(`+${pts}  ${label}`, pts === BULLSEYE_PTS ? C_PRIMARY : C_OFFWHITE);
       return;
     }
@@ -707,9 +724,10 @@ export class MainScene extends Phaser.Scene {
 
   private onUp(p: Phaser.Input.Pointer) {
     if (!this.isCharging) return;
+    const power = this.chargePower();
     this.isCharging = false;
     this.mx = p.x;
     this.my = p.y;
-    if (!this.gameOver && this.chargePower() > 30) this.fireArrow();
+    if (!this.gameOver && power > 30) this.fireArrow(power);
   }
 }

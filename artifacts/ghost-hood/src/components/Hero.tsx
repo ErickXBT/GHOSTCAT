@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import mascotImg from '@assets/2_1784019392022.png';
-import catFaceImg from '@assets/GHOST_HOOD_1784018789875.jpg';
+import mascotImg from '@assets/ghostcat_mascot.jpg';
+import catFaceImg from '@assets/ghostcat_logo.jpg';
 
 export default function Hero() {
   return (
@@ -132,8 +132,8 @@ export default function Hero() {
                 <motion.img
                   src={mascotImg}
                   alt="GHOSTCAT Mascot"
-                  className="h-full object-contain relative z-10 pointer-events-none"
-                  style={{ mixBlendMode: 'screen', filter: 'brightness(1.05)' }}
+                  className="w-full h-full object-cover relative z-10 pointer-events-none"
+                  style={{ filter: 'none' }}
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
                 />

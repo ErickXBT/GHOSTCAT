@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'wouter';
 import Phaser from 'phaser';
 import { MainScene } from '../game/MainScene';
-import mascotUrl from '@assets/2_1784019392022.png';
-import catFaceUrl from '@assets/GHOST_HOOD_1784018789875.jpg';
+import mascotUrl from '@assets/ghostcat_mascot.jpg';
+import catFaceUrl from '@assets/ghostcat_logo.jpg';
 
 const GAME_W = 880;
 const GAME_H = 500;
@@ -58,7 +58,7 @@ export default function Game() {
           </div>
           <div className="flex flex-col leading-none font-black tracking-wider">
             <span className="text-white text-base">GHOST</span>
-            <span className="text-base" style={{ color: '#ccff00' }}>HOOD</span>
+            <span className="text-base" style={{ color: '#ccff00' }}>CAT</span>
           </div>
         </Link>
 
@@ -70,7 +70,7 @@ export default function Game() {
             Ghost Game
           </p>
           <p className="text-white font-black text-lg tracking-tight leading-none">
-            GHOST CAT HOOD
+            GHOSTCAT
           </p>
         </div>
 

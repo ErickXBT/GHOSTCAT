@@ -70,10 +70,16 @@ export default function CtaSection() {
 
           {/* Social icons */}
           <div className="mt-8 flex justify-center gap-3">
-            {[Twitter, Send, Activity].map((Icon, i) => (
+            {[
+              { Icon: Twitter, href: "https://x.com/heyghostcat" },
+              { Icon: Send, href: "https://t.me/heyghostcat" },
+              { Icon: Activity, href: "#" }
+            ].map(({ Icon, href }, i) => (
               <a
                 key={i}
-                href="#"
+                href={href}
+                target={href !== '#' ? '_blank' : undefined}
+                rel={href !== '#' ? 'noopener noreferrer' : undefined}
                 className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-muted-foreground hover:text-white hover:border-white/25 transition-colors"
               >
                 <Icon size={15} />
