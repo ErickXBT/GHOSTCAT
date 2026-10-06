@@ -94,29 +94,45 @@ export default function SneakPeek() {
             className="p-7 flex flex-col border-b border-white/[0.07] group hover:bg-white/[0.02] transition-colors"
           >
             <p className="text-[10px] font-black tracking-[0.2em] uppercase text-muted-foreground mb-5">03 / ON RECORD</p>
-            <h3 className="text-white font-bold text-base mb-5 flex items-center gap-2">
-              <LineChart size={16} style={{ color: '#CCFF00' }} /> Token Stats
-            </h3>
-            <div className="text-2xl font-black text-white mb-4">
-              2,450 <span className="text-sm font-bold" style={{ color: '#CCFF00' }}>$GHOSTCAT</span>
+            <div className="flex justify-between items-center mb-5">
+              <h3 className="text-white font-bold text-base flex items-center gap-2">
+                <LineChart size={16} style={{ color: '#CCFF00' }} /> Token Stats
+              </h3>
+              <span
+                className="text-[10px] font-black tracking-wider uppercase px-2 py-0.5 rounded-sm border"
+                style={{
+                  color: '#CCFF00',
+                  borderColor: 'rgba(204,255,0,0.3)',
+                  backgroundColor: 'rgba(204,255,0,0.07)',
+                }}
+              >
+                TBA
+              </span>
+            </div>
+            <div className="text-2xl font-black text-white/40 mb-4 flex items-baseline gap-2">
+              <span>--</span>
+              <span className="text-sm font-bold" style={{ color: '#CCFF00' }}>$GHOSTCAT</span>
             </div>
             <div className="flex flex-col gap-3">
               {[
-                { label: 'Staked', pct: '65%' },
-                { label: 'Earned', pct: '25%' },
-                { label: 'Burned', pct: '10%' },
+                { label: 'Staked', pct: '--' },
+                { label: 'Earned', pct: '--' },
+                { label: 'Burned', pct: '--' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="flex justify-between text-xs mb-1">
                     <span className="text-muted-foreground">{s.label}</span>
-                    <span className="text-white font-bold">{s.pct}</span>
+                    <span className="text-muted-foreground/50 font-mono text-xs">{s.pct}</span>
                   </div>
                   <div className="h-1 w-full rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>
-                    <div className="h-full rounded-full" style={{ width: s.pct, backgroundColor: i === 0 ? '#CCFF00' : i === 1 ? 'rgba(233,243,234,0.5)' : 'rgba(233,243,234,0.2)' }} />
+                    <div className="h-full rounded-full" style={{ width: '0%' }} />
                   </div>
                 </div>
               ))}
             </div>
+            <p className="mt-4 text-[11px] text-muted-foreground/60 italic">
+              Live metrics will be available upon official token launch.
+            </p>
           </motion.div>
 
           {/* Card 4: Daily Missions */}

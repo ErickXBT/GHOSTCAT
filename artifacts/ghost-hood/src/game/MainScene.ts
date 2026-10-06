@@ -557,7 +557,7 @@ export class MainScene extends Phaser.Scene {
   private buildHUD() {
     const lbl = (s: string): Phaser.Types.GameObjects.Text.TextStyle => ({
       fontFamily: 'Poppins, sans-serif', fontSize: '11px',
-      color: '#4a7a4a', letterSpacing: '3',
+      color: '#4a7a4a', letterSpacing: 3,
     });
     const val = (s: string, big = false): Phaser.Types.GameObjects.Text.TextStyle => ({
       fontFamily: 'Poppins, sans-serif', fontSize: big ? '28px' : '20px',
