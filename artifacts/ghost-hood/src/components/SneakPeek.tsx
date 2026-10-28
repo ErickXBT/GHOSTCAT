@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, MessageSquare, Flame, Coins, LineChart } from 'lucide-react';
-import peekCatImg from '@assets/ghostcat_peek_transparent.png';
+import { ghostCatMoonPoster as peekCatImg } from '@/assets';
 
 export default function SneakPeek() {
   return (

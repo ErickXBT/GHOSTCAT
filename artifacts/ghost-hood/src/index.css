@@ -41,55 +41,34 @@
 }
 
 :root {
-  --background: 132 18% 5%; /* #0B100C */
-  --foreground: 126 31% 93%; /* #E9F3EA */
-  --border: 120 12% 15%;
-  --card: 120 10% 8%;
-  --card-foreground: 126 31% 93%;
-  --card-border: 120 10% 13%;
+  --background: 0 0% 100%; /* #FFFFFF */
+  --foreground: 0 0% 8%;   /* #141414 */
+  --border: 220 13% 91%;   /* #E5E7EB */
+  --card: 0 0% 100%;       /* #FFFFFF */
+  --card-foreground: 0 0% 8%;
+  --card-border: 220 13% 91%;
   
-  --primary: 74 100% 50%; /* #CCFF00 */
-  --primary-foreground: 132 18% 5%;
+  --primary: 221 100% 50%; /* #0052FF - Vibrant Blue */
+  --primary-foreground: 0 0% 100%;
   
-  --secondary: 120 12% 15%;
-  --secondary-foreground: 126 31% 93%;
+  --secondary: 220 14% 96%; /* #F3F4F6 */
+  --secondary-foreground: 0 0% 8%;
   
-  --muted: 120 12% 12%;
-  --muted-foreground: 126 20% 55%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 46%; /* #6B7280 */
   
-  --accent: 74 100% 50%;
-  --accent-foreground: 132 18% 5%;
+  --accent: 221 100% 50%;
+  --accent-foreground: 0 0% 100%;
   
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   
-  --input: 120 12% 20%;
-  --ring: 74 100% 50%;
+  --input: 220 13% 91%;
+  --ring: 221 100% 50%;
 
-  --app-font-sans: 'Space Grotesk', 'Poppins', sans-serif;
+  --app-font-sans: 'Space Grotesk', 'Poppins', system-ui, sans-serif;
   --app-font-display: 'Poppins', sans-serif;
-  --radius: 0.5rem;
-}
-
-.dark {
-  --background: 132 18% 5%;
-  --foreground: 126 31% 93%;
-  --border: 120 12% 15%;
-  --card: 120 10% 8%;
-  --card-foreground: 126 31% 93%;
-  --card-border: 120 10% 13%;
-  --primary: 74 100% 50%;
-  --primary-foreground: 132 18% 5%;
-  --secondary: 120 12% 15%;
-  --secondary-foreground: 126 31% 93%;
-  --muted: 120 12% 12%;
-  --muted-foreground: 126 20% 55%;
-  --accent: 74 100% 50%;
-  --accent-foreground: 132 18% 5%;
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 100%;
-  --input: 120 12% 20%;
-  --ring: 74 100% 50%;
+  --radius: 0.6rem;
 }
 
 @layer base {
@@ -97,16 +76,22 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-white text-gray-900;
   }
 }
 
-/* Grid background */
+/* Crisp grid background */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(204, 255, 0, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(204, 255, 0, 0.035) 1px, transparent 1px);
-  background-size: 52px 52px;
+    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Subtle dot background option */
+.dot-bg {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Marquee animation */
@@ -121,14 +106,10 @@
 
 /* Glow utilities */
 @layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
+  .text-glow-blue {
+    text-shadow: 0 0 12px rgba(0, 82, 255, 0.3);
   }
-  .box-glow {
-    box-shadow: 0 0 20px rgba(204, 255, 0, 0.2);
-  }
-  .box-glow-hover:hover {
-    box-shadow: 0 0 30px rgba(204, 255, 0, 0.15);
-    border-color: rgba(204, 255, 0, 0.3);
+  .box-glow-blue {
+    box-shadow: 0 0 25px rgba(0, 82, 255, 0.15);
   }
 }

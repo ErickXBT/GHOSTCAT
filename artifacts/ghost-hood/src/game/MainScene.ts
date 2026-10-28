@@ -561,7 +561,7 @@ export class MainScene extends Phaser.Scene {
     });
     const val = (s: string, big = false): Phaser.Types.GameObjects.Text.TextStyle => ({
       fontFamily: 'Poppins, sans-serif', fontSize: big ? '28px' : '20px',
-      fontStyle: 'bold', color: '#ccff00',
+      fontStyle: 'bold', color: '#0052FF',
     });
 
     // Score
@@ -579,7 +579,7 @@ export class MainScene extends Phaser.Scene {
     // Feedback flash
     this.feedText = this.add.text(W / 2, H / 2 - 60, '', {
       fontFamily: 'Poppins, sans-serif', fontSize: '34px', fontStyle: 'bold',
-      color: '#ccff00', stroke: '#0b100c', strokeThickness: 6,
+      color: '#0052FF', stroke: '#000000', strokeThickness: 6,
     } as any).setOrigin(0.5).setDepth(25).setAlpha(0);
 
     // Power bar label (shows only while charging)
@@ -680,22 +680,22 @@ export class MainScene extends Phaser.Scene {
 
     const title = this.add.text(W / 2, H / 2 - 90, 'GAME OVER', {
       fontFamily: 'Poppins, sans-serif', fontSize: '44px',
-      fontStyle: 'bold', color: '#ccff00',
-      stroke: '#0b100c', strokeThickness: 6,
+      fontStyle: 'bold', color: '#0052FF',
+      stroke: '#000000', strokeThickness: 6,
     } as any).setOrigin(0.5);
 
     const pts = this.add.text(W / 2, H / 2 + 38, 'POINTS', {
-      fontFamily: 'Poppins, sans-serif', fontSize: '13px', color: '#4a7a4a',
+      fontFamily: 'Poppins, sans-serif', fontSize: '13px', color: '#888888',
     } as any).setOrigin(0.5);
 
     const btn = this.add.text(W / 2, H / 2 + 108, '[ PLAY AGAIN ]', {
       fontFamily: 'Poppins, sans-serif', fontSize: '20px',
-      fontStyle: 'bold', color: '#0b100c',
-      backgroundColor: '#ccff00', padding: { x: 24, y: 12 },
+      fontStyle: 'bold', color: '#ffffff',
+      backgroundColor: '#0052FF', padding: { x: 24, y: 12 },
     } as any).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
-    btn.on('pointerover', () => { btn.setColor('#ccff00'); btn.setBackgroundColor('#0b100c'); });
-    btn.on('pointerout',  () => { btn.setColor('#0b100c'); btn.setBackgroundColor('#ccff00'); });
+    btn.on('pointerover', () => { btn.setColor('#0052FF'); btn.setBackgroundColor('#ffffff'); });
+    btn.on('pointerout',  () => { btn.setColor('#ffffff'); btn.setBackgroundColor('#0052FF'); });
     btn.on('pointerdown', () => this.scene.restart());
 
     this.goOverlay = this.add.container(0, 0, [panel, finalScore, title, pts, btn])
