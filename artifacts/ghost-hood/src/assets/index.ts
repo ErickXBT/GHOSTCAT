@@ -15,6 +15,7 @@ import ghostCatSkatepark from './Neon Ghostcat Skatepark Kickflip.png';
 import ghostCatViceCity from './Neon Ghostcat Vice City Ride.png';
 import ghostCatLogo from './logo.jpg';
 import ghostCatFavicon from './favicon.jpg';
+import ghostCatVideo from './Ghostcat.mp4';
 
 export {
   ghostCatBmx,
@@ -34,4 +35,5 @@ export {
   ghostCatViceCity,
   ghostCatLogo,
   ghostCatFavicon,
+  ghostCatVideo,
 };

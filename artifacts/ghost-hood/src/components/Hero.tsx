@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ghostCatBmx, ghostCatLogo } from '@/assets';
+import { ghostCatBmx, ghostCatLogo, ghostCatVideo } from '@/assets';
 
 export default function Hero() {
   return (
@@ -113,7 +113,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Full-Frame Hero Artwork Showcase */}
+          {/* RIGHT: Full-Frame Hero Video Showcase */}
           <div className="flex justify-center items-center relative w-full">
             {/* Subtle blue backlight glow */}
             <div
@@ -136,25 +136,28 @@ export default function Hero() {
                     <img src={ghostCatLogo} alt="logo" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-[11px] font-bold tracking-[0.16em] uppercase text-gray-800">
-                    GHOSTCAT // OFFICIAL HERO ARTWORK
+                    GHOSTCAT // OFFICIAL HERO VIDEO
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#0052FF] animate-pulse" />
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded-full text-white font-bold tracking-wider bg-[#0052FF]">
-                    FULL FRAME
+                    AUTO LOOP
                   </span>
                 </div>
               </div>
 
-              {/* Full-Frame 16:9 Artwork Container */}
-              <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
-                <motion.img
-                  src={ghostCatBmx}
-                  alt="GHOSTCAT BMX Halloween Ride — No Stress, No Fomo, Just Chill"
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  animate={{ scale: [1, 1.015, 1] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              {/* Full-Frame 16:9 Video Container */}
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+                <video
+                  src={ghostCatVideo || '/Ghostcat.mp4'}
+                  poster={ghostCatBmx}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
 
@@ -166,7 +169,7 @@ export default function Hero() {
                   </span>
                 </div>
                 <span className="text-[10px] font-mono text-gray-500 tracking-wider uppercase font-medium">
-                  1920 × 1080 • 100% UNKILLABLE
+                  HD VIDEO • 100% UNKILLABLE
                 </span>
               </div>
             </motion.div>
