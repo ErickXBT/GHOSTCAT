@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Terminal, Flame } from 'lucide-react';
-import { ghostCatMoonLounge } from '@/assets';
+import { ghostCatMoonLounge, ghostCatVideoStory } from '@/assets';
 
 const storyPoints = [
   {
@@ -123,11 +123,16 @@ export default function Story() {
               </div>
             </div>
 
-            {/* Banner graphic */}
-            <div className="lg:col-span-5 relative h-64 lg:h-full min-h-[300px] overflow-hidden border-t lg:border-t-0 lg:border-l border-gray-100 bg-gray-100">
-              <img
-                src={ghostCatMoonLounge}
-                alt="Ghostcat Neon Moon Lounge"
+            {/* Banner video */}
+            <div className="lg:col-span-5 relative h-72 lg:h-full min-h-[320px] overflow-hidden border-t lg:border-t-0 lg:border-l border-gray-100 bg-black">
+              <video
+                src={ghostCatVideoStory || '/videos/story_moon_lounge.mp4'}
+                poster={ghostCatMoonLounge}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
                 className="w-full h-full object-cover object-center"
               />
             </div>

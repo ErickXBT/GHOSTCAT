@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Ghost, Sparkles, Gamepad2, Smile, ShieldCheck, HeartHandshake } from 'lucide-react';
-import { ghostCatTradingLair } from '@/assets';
+import { ghostCatTradingLair, ghostCatVideoAbout } from '@/assets';
 
 export default function AboutGhost() {
   return (
@@ -87,21 +87,26 @@ export default function AboutGhost() {
             >
               <div className="p-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/70">
                 <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#0052FF]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#0052FF] animate-pulse" />
                   <span className="text-xs font-mono font-bold text-gray-700 ml-1">SPEC_GHOST_CAT.RAW</span>
                 </div>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded text-white font-bold bg-[#0052FF]">
-                  ONLINE
+                  LIVE VIDEO
                 </span>
               </div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                <img
-                  src={ghostCatTradingLair}
-                  alt="Ghost Cat Trading Lair"
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black">
+                <video
+                  src={ghostCatVideoAbout || '/videos/about_trading_lair.mp4'}
+                  poster={ghostCatTradingLair}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end pointer-events-none">
                   <div>
                     <p className="text-xs font-mono text-gray-300 uppercase">SUBJECT</p>
                     <p className="text-white font-bold text-base">$GHOSTCAT Companion</p>

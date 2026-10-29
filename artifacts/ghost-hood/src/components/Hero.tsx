@@ -1,8 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ghostCatBmx, ghostCatLogo, ghostCatVideo } from '@/assets';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ghostCatLogo, heroVideos } from '@/assets';
 
 export default function Hero() {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const currentVideo = heroVideos[currentVideoIndex];
+
+  // Auto-play whenever currentVideoIndex changes
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [currentVideoIndex]);
+
+  const handleVideoEnded = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
+  };
+
   return (
     <section
       id="home"
@@ -113,7 +130,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Full-Frame Hero Video Showcase */}
+          {/* RIGHT: Full-Frame Hero Multi-Video Playlist Showcase */}
           <div className="flex justify-center items-center relative w-full">
             {/* Subtle blue backlight glow */}
             <div
@@ -129,20 +146,20 @@ export default function Hero() {
               transition={{ duration: 0.65, delay: 0.15 }}
               className="relative w-full rounded-2xl border border-gray-200 hover:border-[#0052FF]/60 overflow-hidden shadow-xl group bg-white transition-all duration-300"
             >
-              {/* Clean Header Bar */}
+              {/* Clean Header Bar with Dynamic Video Title */}
               <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-100 bg-gray-50/70">
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-2.5 min-w-0">
                   <div className="w-5 h-5 rounded-md overflow-hidden border border-gray-200 shrink-0">
                     <img src={ghostCatLogo} alt="logo" className="w-full h-full object-cover" />
                   </div>
-                  <span className="text-[11px] font-bold tracking-[0.16em] uppercase text-gray-800">
-                    GHOSTCAT // OFFICIAL HERO VIDEO
+                  <span className="text-[11px] font-bold tracking-[0.16em] uppercase text-gray-800 truncate">
+                    GHOSTCAT // {currentVideo.title}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <span className="w-2 h-2 rounded-full bg-[#0052FF] animate-pulse" />
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded-full text-white font-bold tracking-wider bg-[#0052FF]">
-                    AUTO LOOP
+                    LOOPING ALL ({currentVideoIndex + 1}/{heroVideos.length})
                   </span>
                 </div>
               </div>
@@ -150,26 +167,54 @@ export default function Hero() {
               {/* Full-Frame 16:9 Video Container */}
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
                 <video
-                  src={ghostCatVideo || '/Ghostcat.mp4'}
-                  poster={ghostCatBmx}
+                  ref={videoRef}
+                  key={currentVideo.id}
+                  src={currentVideo.src || currentVideo.fallback}
+                  poster={currentVideo.poster}
                   autoPlay
-                  loop
                   muted
                   playsInline
                   preload="auto"
+                  onEnded={handleVideoEnded}
                   className="w-full h-full object-cover object-center"
                 />
+
+                {/* Playlist Mini Navigation Pills Overlay */}
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1.5 rounded-full z-20 border border-white/10">
+                  {heroVideos.map((vid, idx) => (
+                    <button
+                      key={vid.id}
+                      onClick={() => setCurrentVideoIndex(idx)}
+                      title={`Play ${vid.title}`}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        idx === currentVideoIndex
+                          ? 'w-6 bg-[#0052FF]'
+                          : 'w-2 bg-white/40 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
 
-              {/* Bottom Info Strip */}
-              <div className="px-5 py-3.5 border-t border-gray-100 flex items-center justify-between bg-white">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono font-bold text-[#0052FF]">
-                    ✦ NO STRESS, NO FOMO, JUST CHILL
-                  </span>
+              {/* Bottom Info Strip with Interactive Tabs */}
+              <div className="px-5 py-3 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2 bg-white">
+                <div className="flex items-center gap-2 overflow-x-auto py-1">
+                  {heroVideos.map((vid, idx) => (
+                    <button
+                      key={vid.id}
+                      onClick={() => setCurrentVideoIndex(idx)}
+                      className={`text-[10px] font-mono px-2.5 py-1 rounded-lg border transition-all ${
+                        idx === currentVideoIndex
+                          ? 'border-[#0052FF] bg-blue-50 text-[#0052FF] font-bold'
+                          : 'border-gray-200 text-gray-500 hover:text-gray-900 bg-white'
+                      }`}
+                    >
+                      {String(idx + 1).padStart(2, '0')}. {vid.title}
+                    </button>
+                  ))}
                 </div>
-                <span className="text-[10px] font-mono text-gray-500 tracking-wider uppercase font-medium">
-                  HD VIDEO • 100% UNKILLABLE
+                <span className="text-[10px] font-mono text-gray-500 tracking-wider uppercase font-medium ml-auto">
+                  HD PLAYLIST • AUTO NEXT
                 </span>
               </div>
             </motion.div>

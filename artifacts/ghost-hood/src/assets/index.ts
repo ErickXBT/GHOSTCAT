@@ -15,7 +15,18 @@ import ghostCatSkatepark from './Neon Ghostcat Skatepark Kickflip.png';
 import ghostCatViceCity from './Neon Ghostcat Vice City Ride.png';
 import ghostCatLogo from './logo.jpg';
 import ghostCatFavicon from './favicon.jpg';
-import ghostCatVideo from './Ghostcat.mp4';
+import ghostCatVideoHero from './Ghostcat.mp4';
+import ghostCatVideoAbout from './gemini_generated_video_c388de3c.mp4';
+import ghostCatVideoStory from './gemini_generated_video_49ed28a5.mp4';
+import ghostCatVideoWhy from './gemini_generated_video_5d0e9b9e.mp4';
+
+// Array of all Hero playlist videos
+export const heroVideos = [
+  { id: 'hero-bmx', title: 'BMX Halloween Ride', src: ghostCatVideoHero, fallback: '/videos/hero_bmx.mp4', poster: ghostCatBmx },
+  { id: 'about-trading', title: 'Chill Trading Lair', src: ghostCatVideoAbout, fallback: '/videos/about_trading_lair.mp4', poster: ghostCatTradingLair },
+  { id: 'story-moon', title: 'Neon Moon Lounge', src: ghostCatVideoStory, fallback: '/videos/story_moon_lounge.mp4', poster: ghostCatMoonLounge },
+  { id: 'why-beach', title: 'Beach Chill Sunset', src: ghostCatVideoWhy, fallback: '/videos/why_beach_sunset.mp4', poster: ghostCatBeachSunset },
+];
 
 export {
   ghostCatBmx,
@@ -35,5 +46,9 @@ export {
   ghostCatViceCity,
   ghostCatLogo,
   ghostCatFavicon,
-  ghostCatVideo,
+  ghostCatVideoHero,
+  ghostCatVideoHero as ghostCatVideo,
+  ghostCatVideoAbout,
+  ghostCatVideoStory,
+  ghostCatVideoWhy,
 };

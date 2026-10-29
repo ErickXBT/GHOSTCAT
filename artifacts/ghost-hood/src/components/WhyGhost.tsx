@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Gamepad2, ShieldCheck, Ghost, Flame, Smile } from 'lucide-react';
-import { ghostCatBeachSunset } from '@/assets';
+import { ghostCatBeachSunset, ghostCatVideoWhy } from '@/assets';
 
 export default function WhyGhost() {
   return (
@@ -110,15 +110,20 @@ export default function WhyGhost() {
                 </span>
               </div>
 
-              {/* Visual Image */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                <img
-                  src={ghostCatBeachSunset}
-                  alt="Neon GhostCat Beach Chill Sunset"
+              {/* Visual Video */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black">
+                <video
+                  src={ghostCatVideoWhy || '/videos/why_beach_sunset.mp4'}
+                  poster={ghostCatBeachSunset}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end pointer-events-none">
                   <div>
                     <p className="text-xs font-mono text-gray-300 uppercase">CORE TENET</p>
                     <p className="text-white font-bold text-base">Unkillable Chill</p>
